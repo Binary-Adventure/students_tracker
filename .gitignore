@@ -48,4 +48,4 @@ env/
 data/backup/
 
 # Bats
-.bat
+*.bat
