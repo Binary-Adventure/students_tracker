@@ -28,9 +28,9 @@ git clone <url-репозитория>
 pip install -r requirements.txt
 ```
 
-3. Создайте базу данных в PostgreSQL:
+3. Создайте базу данных в PostgreSQL с кодировкой UTF8:
 ```sql
-CREATE DATABASE college_students_db;
+CREATE DATABASE college_students_db WITH ENCODING 'UTF8';
 ```
 
 4. Настройте параметры подключения к базе данных в файле `.env`:
@@ -112,3 +112,15 @@ college_students_tracker/
 - Отметка присутствия/отсутствия студентов на занятиях
 - Фильтрация по дате и предмету
 - Экспорт данных о посещаемости в CSV
+
+## Решение проблем
+
+### Проблемы с кодировкой
+Если при инициализации базы данных возникают ошибки кодировки, убедитесь, что:
+1. База данных создана с кодировкой UTF8
+2. SQL-файлы сохранены в кодировке UTF8
+3. При выполнении SQL-скриптов используйте параметр `-E UTF8`:
+```
+psql -U postgres -d college_students_db -E UTF8 -f data/db_init.sql
+psql -U postgres -d college_students_db -E UTF8 -f data/sample_data.sql
+```

@@ -1,0 +1,3 @@
+@echo off
+echo App starting...
+python -m app

@@ -46,3 +46,6 @@ env/
 
 # Backups
 data/backup/
+
+# Bats
+.bat
